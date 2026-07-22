@@ -52,17 +52,42 @@ Status legend: `not reviewed` / `reviewing` / `approved for ingestion` /
 
 ## Monolingual text corpora
 
-### KS-LIT-3M — REVIEWING
+### KS-LIT-3M — APPROVED
 - **Content:** 3.1 million words (16.4M characters) of Kashmiri literary
   text, built for LM pretraining. Notable for including a converter from
   the proprietary InPage desktop-publishing format to Unicode — directly
   relevant to our own `tools/` InPage converter work.
-- **License:** paper states the dataset is released "under an open
-  license" but the exact license (MIT/CC-BY/ODC-BY/etc.) hasn't been
-  confirmed from the paper's licensing section yet.
-- **Source:** arXiv 2601.01091, Jan 2026.
-- **Status: reviewing** — pull the exact license line from the paper before
-  moving to approved. High priority given relevance to InPage work.
+- **License: CC BY 4.0**, confirmed — permits sharing and adaptation with
+  attribution; author requests citation of the paper (Malik, arXiv
+  2601.01091, 2026) when the dataset is used.
+- **Source:** arXiv 2601.01091, Jan 2026. Hosted on Hugging Face under
+  author Haq Nawaz Malik (huggingface.co/Omarrran).
+- **Status: approved for ingestion.** CC BY 4.0 folds cleanly under our
+  ODC-BY corpus license recommendation.
+
+### KS-PRET-5M — NEW, not yet reviewed in depth
+- **Content:** Follow-up/extension of KS-LIT-3M by the same author. 5.09
+  million words, 12.13M subword tokens — broader genre coverage than
+  KS-LIT-3M (adds journalism, biography, academic writing, religious
+  scholarship) plus Unicode-native web-sourced text.
+- **License:** CC BY 4.0, "with a few custom restrictions noted on the
+  Hugging Face dataset card" — needs a direct read of that card before
+  approving, since the exact restrictions aren't stated in the paper text
+  reviewed so far.
+- **Source:** arXiv 2604.11066, hosted at
+  huggingface.co/datasets/Omarrran/KS-PRET-5M_5_million_kashmiri_Pretrainning_LLM_dataset_12M_tokens_2026
+- **Status: reviewing** — larger and broader than KS-LIT-3M, high priority
+  to check the dataset card's custom restrictions.
+
+### 600K-KS-OCR — NEW, lower priority for now
+- **Content:** ~602,000 word-level synthetic image dataset for OCR on
+  Kashmiri script (not raw text — image + transcription pairs). Not
+  directly usable for KoshurCorpus's text corpus, but relevant if KoshurAI
+  ever needs OCR for scanned (non-InPage) Kashmiri documents.
+- **License:** CC-BY-4.0, confirmed.
+- **Source:** arXiv 2601.01088, same author (Malik).
+- **Status:** not reviewed for inclusion — parked as a future-relevance
+  note, not a text-corpus candidate right now.
 
 ### EMILLE monolingual corpus
 - **Content:** Older monolingual Kashmiri corpus from the EMILLE project.
