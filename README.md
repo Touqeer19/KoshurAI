@@ -35,13 +35,27 @@ Early stage. Currently defining architecture, orthography policy, dataset
 schema, and licensing before data collection begins. See the
 [Project board](../../projects) for current milestones.
 
-## Script policy
+## Script policy — CONFIRMED
 
-Kashmiri is written in more than one script — primarily Perso-Arabic
-(Nastaliq) and, less commonly, Devanagari. KoshurCorpus accepts text in
-either script. Every entry is tagged with its source script; we do not
-force transliteration or normalize scripts away from their original form
-at ingestion. See `docs/schema.md` for details.
+Kashmiri is written in more than one script. KoshurCorpus is a **multi-script
+corpus**: it accepts text in any script it appears in — primarily
+Perso-Arabic (Nastaliq), the dominant contemporary script, along with
+Devanagari (notably used by Kashmiri Pandit communities, especially in
+diaspora contexts), and Sharada where it appears in historical sources.
+
+Every entry is tagged with its source script via the `script` field (see
+`docs/schema.md`). Text is never converted or normalized to a different
+script at ingestion — the original form is always preserved. Transliteration
+into another script is treated as an optional, derived field that can be
+added later once conversion quality is trusted; it is never a substitute for
+the original.
+
+This was decided deliberately over a single-script (Perso-Arabic-only)
+approach: script conversion between Perso-Arabic, Devanagari, and Sharada
+isn't always lossless, and a single-script policy would have excluded
+Devanagari-writing communities from the corpus by default. Multi-script
+support costs more in ingestion/cleaning engineering, but keeps the corpus
+representative and keeps no information one-way-destroyed.
 
 ## License
 
